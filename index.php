@@ -55,17 +55,11 @@
                             <!-- Nav Start -->
                             <div class="classynav">
                                 <ul>
-                                    <li><a href="about.php">Acerca de</a></li>
+                                    <li><a href="php/loginadmin/LoginAdmin.php">Administrador</a></li>
+                                    <li><a href="php/login/Login.php">Login Usuario</a></li>
+                                    <li><a href="php/PanelCajero/Panel.php">Login Cajero</a></li>
+                                    <li><a href="php/PanelCajero/Panel.php">Registro Usuario</a></li>
                                 </ul>
-
-                                <!-- Newsletter Form -->
-                                <div class="header-newsletter-form">
-                                    <form action="#" method="post">
-                                        <input type="text" name="user" id="user" placeholder="Usuario">
-                                        <button type="submit">Login</button>
-                                    </form>
-                                </div>
-
                             </div>
                             <!-- Nav End -->
                         </div>
@@ -86,11 +80,15 @@
                     <div class="row h-100 align-items-center">
                         <div class="col-12 col-md-7">
                             <div class="hero-slides-content">
-                                <h2 data-animation="fadeInUp" data-delay="100ms">Segundo Proyecto   <span>Banca</span></h2>
+                                <h2 data-animation="fadeInUp" data-delay="100ms">Segundo Proyecto <span>Banca</span>
+                                </h2>
                                 <h6>INTEGRANTES:</h6>
-                                <h6 data-animation="fadeInUp" data-delay="400ms"> Elmer Santiago Lac&aacute;n Tal&eacute; ------- 0900-16-10466</br>Bany Israel Alvarado Ch&uacute; ------- 0900-16-6855</br>Omar Jacobo Muñoz Veliz ------- 0900-16-774
-                                </br>Kevin Estuardo Vasquez Santiago ------- 0900-16-11487</h6>
-                                <a href="about.php" class="btn cryptos-btn" data-animation="fadeInUp" data-delay="700ms">Acerca de</a>
+                                <h6 data-animation="fadeInUp" data-delay="400ms"> Elmer Santiago Lac&aacute;n
+                                    Tal&eacute; ------- 0900-16-10466</br>Bany Israel Alvarado Ch&uacute; -------
+                                    0900-16-6855</br>Omar Jacobo Muñoz Veliz ------- 0900-16-774
+                                    </br>Kevin Estuardo Vasquez Santiago ------- 0900-16-11487</h6>
+                                <a href="about.php" class="btn cryptos-btn" data-animation="fadeInUp"
+                                    data-delay="700ms">Acerca de</a>
                             </div>
                         </div>
                         <div class="col-12 col-md-5">
@@ -109,10 +107,13 @@
                         <div class="col-12 col-md-7">
                             <div class="hero-slides-content">
                                 <h2 data-animation="fadeInUp" data-delay="100ms">Desarrollo Web<span>UMG</span></h2>
-                                 <h6>INTEGRANTES:</h6>
-                                <h6 data-animation="fadeInUp" data-delay="400ms"> Elmer Santiago Lac&aacute;n Tal&eacute; ------- 0900-16-10466</br>Bany Israel Alvarado Ch&uacute; ------- 0900-16-6855</br>Omar Jacobo Muñoz Veliz ------- 0900-16-774
-                                </br>Kevin Estuardo Vasquez Santiago ------- 0900-16-11487</h6>
-                                <a href="about.php" class="btn cryptos-btn" data-animation="fadeInUp" data-delay="700ms">Acerca de</a>
+                                <h6>INTEGRANTES:</h6>
+                                <h6 data-animation="fadeInUp" data-delay="400ms"> Elmer Santiago Lac&aacute;n
+                                    Tal&eacute; ------- 0900-16-10466</br>Bany Israel Alvarado Ch&uacute; -------
+                                    0900-16-6855</br>Omar Jacobo Muñoz Veliz ------- 0900-16-774
+                                    </br>Kevin Estuardo Vasquez Santiago ------- 0900-16-11487</h6>
+                                <a href="about.php" class="btn cryptos-btn" data-animation="fadeInUp"
+                                    data-delay="700ms">Acerca de</a>
                             </div>
                         </div>
                         <div class="col-12 col-md-5">
@@ -127,12 +128,13 @@
     </section>
     <!-- ##### Hero Area End ##### -->
 
-    
+
 
     <!-- ##### Footer Area Start ##### -->
     <footer class="footer-area">
         <!-- Main Footer Area -->
-        <div class="main-footer-area section-padding-100-0 bg-img bg-overlay" style="background-image: url(img/bg-img/bg-1.jpg);">
+        <div class="main-footer-area section-padding-100-0 bg-img bg-overlay"
+            style="background-image: url(img/bg-img/bg-1.jpg);">
             <div class="container">
                 <div class="row">
 
@@ -162,10 +164,15 @@
             <div class="container h-100">
                 <div class="row h-100 align-items-center justify-content-center">
                     <div class="col-12">
-                        <p><!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+                        <p>
+                            <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
 
-Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with <i class="fa fa-heart-o" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib</a><!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-</p>
+                            Copyright &copy;<script>
+                                document.write(new Date().getFullYear());
+                            </script> All rights reserved | This template is made with <i class="fa fa-heart-o"
+                                aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib</a>
+                            <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+                        </p>
                     </div>
                 </div>
             </div>
