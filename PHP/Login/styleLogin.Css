@@ -41,6 +41,15 @@ span.psw {
     padding-top: 16px;
 }
 
+.error {
+    background-color:red !important;
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    cursor: pointer;
+    width: 100%;
+}
 /* Change styles for span and cancel button on extra small screens */
 @media screen and (max-width: 300px) {
     span.psw {
