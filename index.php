@@ -57,7 +57,7 @@
                                 <ul>
                                     <li><a href="php/loginadmin/LoginAdmin.php">Administrador</a></li>
                                     <li><a href="php/login/Login.php">Login Usuario</a></li>
-                                    <li><a href="php/PanelCajero/Panel.php">Login Cajero</a></li>
+                                    <li><a href="php/PanelCajero/Login.php">Login Cajero</a></li>
                                     <li><a href="php/PanelCajero/Panel.php">Registro Usuario</a></li>
                                 </ul>
                             </div>

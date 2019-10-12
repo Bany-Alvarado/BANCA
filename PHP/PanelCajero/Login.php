@@ -1,25 +1,10 @@
-<?php
-session_start();
-
-if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] == true) {
-
-} else {
-   echo "Inicia Sesion para acceder a este contenido.<br>";
-   echo "<br><a href='login.html'>Login</a>";
-   echo "<br><br><a href='index.html'>Registrarme</a>";
-   header('Location:  ../../../index.php');//redirige a la página de login si el usuario quiere ingresar sin iniciar sesion
-
-
-exit;
-}
-?>
 <html>
 
 <head>
     <title>Ejemplo LocalStorage</title>
     <link rel="stylesheet" href="../../style.css">
-    <link rel="stylesheet" href="style.css">
-    <link rel="icon" href="../img/core-img/favicon.ico">
+    <link rel="stylesheet" href="styleLogin.css">
+    <link rel="icon" href="img/core-img/favicon.ico">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
 </head>
 
@@ -54,8 +39,7 @@ exit;
                             <!-- Nav Start -->
                             <div class="classynav">
                                 <ul>
-                                        <li><a>Bienvenido <?php echo $_SESSION['username']; ?> </a></li>
-                                        <li><a href="../Logout.php">Cerrar Session</a></li>
+                                    <li><a href="../../index.php">Volver</a></li>
                                 </ul>
                             </div>
                             <!-- Nav End -->
@@ -66,12 +50,18 @@ exit;
         </div>
     </header>
 
-    <section class="section-class">
-        <center>
-            <button type="submit" onclick="location.href='';"  name="btn_CtaTerceros">Deposito a Cuenta</button>
-            <button type="submit" name="btn_Login">Retiro de cuenta</button>
-            <button type="submit" name="btn_Login">Añadir Nueva cuenta</button>
-        </center>
+    <section class="hero-area">
+        <form action="checkLogin.php" method="post">
+            <div class="container">
+                <label for="username"><b>Usuario</b></label>
+                <input type="text" placeholder="Usuario" name="username" required>
+
+                <label for="password"><b>Password</b></label>
+                <input type="password" placeholder="Password" name="password" required>
+
+                <button type="submit" name="btn_Login">Login</button>
+            </div>
+        </form>
     </section>
     <!-- ##### Footer Area Start ##### -->
     <footer class="footer-area">

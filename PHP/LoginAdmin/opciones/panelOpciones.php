@@ -17,9 +17,9 @@ exit;
 
 <head>
     <title>Ejemplo LocalStorage</title>
-    <link rel="stylesheet" href="../../style.css">
+    <link rel="stylesheet" href="../../../style.css">
     <link rel="stylesheet" href="style.css">
-    <link rel="icon" href="../img/core-img/favicon.ico">
+    <link rel="icon" href="../../../img/core-img/favicon.ico">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
 </head>
 
@@ -36,7 +36,7 @@ exit;
                     <nav class="classy-navbar justify-content-between" id="cryptosNav">
 
                         <!-- Logo -->
-                        <a class="nav-brand" href="index.php"><img src="../../img/core-img/logo.png" alt=""></a>
+                        <a class="nav-brand" href="index.php"><img src="../../../img/core-img/logo.png" alt=""></a>
 
                         <!-- Navbar Toggler -->
                         <div class="classy-navbar-toggler">
@@ -55,7 +55,7 @@ exit;
                             <div class="classynav">
                                 <ul>
                                         <li><a>Bienvenido <?php echo $_SESSION['username']; ?> </a></li>
-                                        <li><a href="../Logout.php">Cerrar Session</a></li>
+                                    <li><a href="../../Logout.php">Cerrar session</a></li>
                                 </ul>
                             </div>
                             <!-- Nav End -->
@@ -68,16 +68,15 @@ exit;
 
     <section class="section-class">
         <center>
-            <button type="submit" onclick="location.href='';"  name="btn_CtaTerceros">Deposito a Cuenta</button>
-            <button type="submit" name="btn_Login">Retiro de cuenta</button>
-            <button type="submit" name="btn_Login">Añadir Nueva cuenta</button>
+            <button type="submit" onclick="location.href='BloquearCajeros/cajeros.php';"  name="btn_CtaTerceros">Usuarios Cajero</button>
+            <button type="submit" name="btn_Login">Monitor de Transferencia</button>
         </center>
     </section>
     <!-- ##### Footer Area Start ##### -->
     <footer class="footer-area">
         <!-- Main Footer Area -->
         <div class="main-footer-area section-padding-100-0 bg-img bg-overlay"
-            style="background-image: url(../../img/bg-img/bg-1.jpg);">
+            style="background-image: url(../../../img/bg-img/bg-1.jpg);">
             <div class="container">
                 <div class="row">
 
@@ -85,7 +84,7 @@ exit;
                     <div class="col-12 col-sm-6 col-lg-4">
                         <div class="footer-widget mb-100">
                             <div class="widget-title">
-                                <a href="#"><img src="../../img/core-img/logo2.png" alt=""></a>
+                                <a href="#"><img src="../../../img/core-img/logo2.png" alt=""></a>
                             </div>
                             <p>Segundo proyecto de Desarrollo Web</p>
                             <div class="footer-social-info">
