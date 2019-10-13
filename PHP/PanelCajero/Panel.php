@@ -18,7 +18,6 @@ exit;
 <head>
     <title>Ejemplo LocalStorage</title>
     <link rel="stylesheet" href="../../style.css">
-    <link rel="stylesheet" href="style.css">
     <link rel="icon" href="../img/core-img/favicon.ico">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
 </head>
@@ -68,9 +67,9 @@ exit;
 
     <section class="section-class">
         <center>
-            <button type="submit" onclick="location.href='';"  name="btn_CtaTerceros">Deposito a Cuenta</button>
-            <button type="submit" name="btn_Login">Retiro de cuenta</button>
-            <button type="submit" name="btn_Login">Añadir Nueva cuenta</button>
+            <button class="buttonOption" type="submit" onclick="location.href='';"  name="btn_CtaTerceros">Deposito a Cuenta</button>
+            <button class="buttonOption" type="submit" name="btn_Login">Retiro de cuenta</button>
+            <button class="buttonOption" type="submit" name="btn_Login">Añadir Nueva cuenta</button>
         </center>
     </section>
     <!-- ##### Footer Area Start ##### -->

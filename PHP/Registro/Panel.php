@@ -1,24 +1,10 @@
-<?php
-session_start();
-
-if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] == true) {
-
-} else {
-   echo "Inicia Sesion para acceder a este contenido.<br>";
-   echo "<br><a href='login.html'>Login</a>";
-   echo "<br><br><a href='index.html'>Registrarme</a>";
-   header('Location:  ../../../../index.php');//redirige a la página de login si el usuario quiere ingresar sin iniciar sesion
-
-
-exit;
-}
-?>
 <html>
 
 <head>
     <title>Ejemplo LocalStorage</title>
-    <link rel="stylesheet" href="../../../../style.css">
-    <link rel="icon" href="../../../../img/core-img/favicon.ico">
+    <link rel="stylesheet" href="../../style.css">
+    <!-- <link rel="stylesheet" href="style.css"> -->
+    <link rel="icon" href="../../img/core-img/favicon.ico">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
 </head>
 
@@ -35,7 +21,7 @@ exit;
                     <nav class="classy-navbar justify-content-between" id="cryptosNav">
 
                         <!-- Logo -->
-                        <a class="nav-brand" href="index.php"><img src="../../../../img/core-img/logo.png" alt=""></a>
+                        <a class="nav-brand" href="index.php"><img src="../../img/core-img/logo.png" alt=""></a>
 
                         <!-- Navbar Toggler -->
                         <div class="classy-navbar-toggler">
@@ -53,8 +39,8 @@ exit;
                             <!-- Nav Start -->
                             <div class="classynav">
                                 <ul>
-                                    <li><a>Bienvenido <?php echo $_SESSION['username']; ?> </a></li>
-                                    <li><a href="../panelOpciones.php">Volver</a></li>
+                                    <!-- <li><a>Bienvenido <?php echo $_SESSION['username']; ?> </a></li> -->
+                                    <li><a href="../../index.php">Volver</a></li>
                                 </ul>
                             </div>
                             <!-- Nav End -->
@@ -65,54 +51,39 @@ exit;
         </div>
     </header>
 
-    <section class="section-class">
-        <button  class= "buttonAdd" onclick="window.location.href='NuevoCajero/Nuevo.php'">Agregar</button>
-        <?php
-            include '../../../../config.php';
 
-            $mysqli = new mysqli($host_db, $user_db, $pass_db, $db_name);
-
-            if($mysqli->connect_errno){exit;}
-
-            
-        $result = $mysqli->query("SELECT Nombre, correo, BLOQUEADO, ID FROM usuarios_cajeros");
-
-        
-            // output data of each row
-            echo "<table class=\"table\">";
-        echo "<thead>
-            <tr>
-            <th class=\"table__heading\">Nombre</th>
-            <th class=\"table__heading\">Correo</th>
-            <th class=\"table__heading\">Activo</th>
-            </tr>
-        </thead>";
-        echo " <tbody>";
-        if ($result->num_rows > 0) {
-            while($row = $result->fetch_assoc()) {
-                echo "<tr class=\"table__row\">";
-                echo "<td class=\"table__content\">".$row['Nombre']."</td>";
-                echo "<td class=\"table__content\">".$row['correo']."</td>";
-                if($row['BLOQUEADO']){
-                    echo "<td class=\"table__content\"><a href='Activar.php?id=".$row['ID']."&status=".$row['BLOQUEADO']."'>Activar</a></td>";
-                }else{
-                    echo "<td class=\"table__content\"><a href='Activar.php?id=".$row['ID']."&status=".$row['BLOQUEADO']."'>Desactivar</a></td>";
-                }
-                echo "</tr>";
-            }
-         }
-        echo "</tbody>";
-        echo "</table>";
-
-        
-        $mysqli->close();
-        ?>
+    <section class="hero-area">
+        <form action="SaveUsuario.php" method="POST">
+            <div class="container">
+                <label for="nombre"><b>Nombre</b></label>
+                <input type="text" placeholder="Nombre" name="nombre" required>
+                <label for="Apellido"><b>Apellido</b></label>
+                <input type="text" placeholder="Apellido" name="apellido" required>
+                <label for="dpi"><b>DPI</b></label>
+                <input type="text" placeholder="DPI" name="dpi" required>
+                <label for="usuario"><b>Usuario</b></label>
+                <input type="text" placeholder="Usuario" name="usuario" required>
+                <label for="Email"><b>Email</b></label>
+                <input type="email" placeholder="Email" name="email" required>
+                <label for="password"><b>password</b></label>
+                <input type="password" placeholder="password" name="password" required>
+                <label for="tipo_cta"><b>Tipo de Cuenta</b></label>
+                <select type="select" name="tipo_cta">
+                    <option value="47051d23-edca-11e9-a98e-54e1ad54d8cf">Monetaria</option>
+                    <option value="4d57dbeb-edca-11e9-a98e-54e1ad54d8cf">Ahorro</option>
+                </select>
+                <label for="cuenta"><b>NO. Cuenta</b></label>
+                <input type="number" placeholder="NO. Cuenta" name="cuenta" value="<?php echo rand(100000000, 999999999);?>" required readonly>
+                <button type="submit" name="btn_Save">Guardar</button>
+                <button class="red" onclick="window.location.href='../../index.php'" name="btn_cancel">Cancelar</button>
+            </div>
+        </form>
     </section>
     <!-- ##### Footer Area Start ##### -->
     <footer class="footer-area">
         <!-- Main Footer Area -->
         <div class="main-footer-area section-padding-100-0 bg-img bg-overlay"
-            style="background-image: url(../../../../img/bg-img/bg-1.jpg);">
+            style="background-image: url(../../../img/bg-img/bg-1.jpg);">
             <div class="container">
                 <div class="row">
 
@@ -120,7 +91,7 @@ exit;
                     <div class="col-12 col-sm-6 col-lg-4">
                         <div class="footer-widget mb-100">
                             <div class="widget-title">
-                                <a href="#"><img src="../../../../img/core-img/logo2.png" alt=""></a>
+                                <a href="#"><img src="../../img/core-img/logo2.png" alt=""></a>
                             </div>
                             <p>Segundo proyecto de Desarrollo Web</p>
                             <div class="footer-social-info">

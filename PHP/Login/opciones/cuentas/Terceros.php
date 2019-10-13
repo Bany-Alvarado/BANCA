@@ -18,6 +18,7 @@ exit;
 <head>
     <title>Ejemplo LocalStorage</title>
     <link rel="stylesheet" href="../../../../style.css">
+    <link rel="stylesheet" href="style.css">
     <link rel="icon" href="../../../../img/core-img/favicon.ico">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
 </head>
@@ -66,7 +67,8 @@ exit;
     </header>
 
     <section class="section-class">
-        <button  class= "buttonAdd" onclick="window.location.href='NuevoCajero/Nuevo.php'">Agregar</button>
+        <center>
+        <button class="buttonAdd" onclick="window.location.href='NuevoCajero/Nuevo.php'">Agregar</button>
         <?php
             include '../../../../config.php';
 
@@ -74,8 +76,14 @@ exit;
 
             if($mysqli->connect_errno){exit;}
 
-            
-        $result = $mysqli->query("SELECT Nombre, correo, BLOQUEADO, ID FROM usuarios_cajeros");
+        $result = $mysqli->query("SELECT  USU.NOMBRE NOMBRE,  CT.ALIAS ALIAS, C.NO_CUENTA CUENTA, TIP.NOMBRE TIPO
+        FROM cuentas_terceros CT
+        JOIN cuenta C ON CT.ID_TERCERO = C.ID
+        JOIN USUARIOS  USU
+        ON C.ID_USUARIO = USU.ID
+        JOIN TIPO_CUENTA TIP
+        ON TIP.ID = C.ID_TIPO_CUENTA
+        where CT.ID_USUARIO = '".$_SESSION['UUID']. "'");
 
         
             // output data of each row
@@ -83,30 +91,28 @@ exit;
         echo "<thead>
             <tr>
             <th class=\"table__heading\">Nombre</th>
-            <th class=\"table__heading\">Correo</th>
-            <th class=\"table__heading\">Activo</th>
+            <th class=\"table__heading\">Alias</th>
+            <th class=\"table__heading\">Tipo</th>
+            <th class=\"table__heading\">Cuenta</th>
             </tr>
         </thead>";
         echo " <tbody>";
         if ($result->num_rows > 0) {
             while($row = $result->fetch_assoc()) {
                 echo "<tr class=\"table__row\">";
-                echo "<td class=\"table__content\">".$row['Nombre']."</td>";
-                echo "<td class=\"table__content\">".$row['correo']."</td>";
-                if($row['BLOQUEADO']){
-                    echo "<td class=\"table__content\"><a href='Activar.php?id=".$row['ID']."&status=".$row['BLOQUEADO']."'>Activar</a></td>";
-                }else{
-                    echo "<td class=\"table__content\"><a href='Activar.php?id=".$row['ID']."&status=".$row['BLOQUEADO']."'>Desactivar</a></td>";
-                }
+                echo "<td class=\"table__content\">".$row['NOMBRE']."</td>";
+                echo "<td class=\"table__content\">".$row['ALIAS']."</td>";
+                echo "<td class=\"table__content\">".$row['TIPO']."</td>";                
+                echo "<td class=\"table__content\">".$row['CUENTA']."</td>";
                 echo "</tr>";
             }
-         }
+        }
         echo "</tbody>";
         echo "</table>";
-
         
         $mysqli->close();
         ?>
+        </center>
     </section>
     <!-- ##### Footer Area Start ##### -->
     <footer class="footer-area">

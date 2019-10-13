@@ -15,7 +15,7 @@ if ($conexion->connect_error) {
 $username = $_POST['username'];
 $password = $_POST['password'];
  
-$sql = "SELECT * FROM usuarios WHERE usuario = '$username'";
+$sql = "SELECT * FROM usuarios WHERE usuario = '$username' and  ACTIVO = 1";
 
 
 $result = $conexion->query($sql);
@@ -31,6 +31,7 @@ if ($password==$row['PASSWORD']) {
  
     $_SESSION['loggedin'] = true;
     $_SESSION['username'] = $username;
+    $_SESSION['UUID'] = $row['ID'];
 
     // echo "Bienvenido! " . $_SESSION['username'];
     
