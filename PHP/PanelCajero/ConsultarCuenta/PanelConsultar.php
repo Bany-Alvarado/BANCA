@@ -72,7 +72,7 @@
 
                                 <!-- Newsletter Form -->
                                 <!-- <div class="header-newsletter-form">
-                                    <form action="php/Login.php" method="post">
+                                    <form action="PHP/Login.php" method="post">
                                         <input type="text" name="user" id="user" placeholder="Usuario">
                                         <button type="submit">Login</button>
                                     </form>
