@@ -37,7 +37,7 @@ $pass = $_POST['password'];
 $tipo_cta = $_POST['tipo_cta'];
 $cuenta = $_POST['cuenta'];
 // sql to delete a record
-$sqlUsser = "INSERT INTO usuarios (ID, NOMBRE, APELLIDO, DPI, USUARIO, CORREO, PASSWORD, ACTIVO, esAdmin) VALUES ('$uuid','$nombre','$apellido','$dpi','$usuario','$email','$pass',0,0)";
+$sqlUsser = "INSERT INTO usuarios (ID, NOMBRE, APELLIDO, DPI, USUARIO, CORREO, PASSWORD, ACTIVO, esAdmin) VALUES ('$uuid','$nombre','$apellido','$dpi','$usuario','$email','$pass',1,1)";
 $sql = "INSERT INTO cuenta (ID, ID_USUARIO, NO_CUENTA, ID_TIPO_CUENTA, SALDO) VALUES ('$uuidC','$uuid','$cuenta','$tipo_cta',0)";
 echo $sql; 
 // send_email();
