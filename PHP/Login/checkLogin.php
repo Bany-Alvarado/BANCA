@@ -35,7 +35,7 @@ if ($password==$row['PASSWORD']) {
 
     // echo "Bienvenido! " . $_SESSION['username'];
     
-   header('Location: opciones/panelopciones.php');//redirecciona a la pagina del usuario
+   header('Location: opciones/panelOpciones.php');//redirecciona a la pagina del usuario
 
  } else { 
    echo "<div>Usuario o Password Incorrectos</div>";

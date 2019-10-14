@@ -33,7 +33,7 @@ if ($password==$row['PASSWORD']) {
     $_SESSION['username'] = $username;
 
     
-   header('Location: opciones/panelopciones.php');//redirecciona a la pagina del usuario
+   header('Location: opciones/panelOpciones.php');//redirecciona a la pagina del usuario
 
  } else { 
   header('Location: errorLogin.php');
