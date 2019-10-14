@@ -27,8 +27,7 @@ $query = "CALL TRANSFERIR($monto,'$cta','$id','$comment')";
 if ($conexion->query($query)) {
     echo "CALL failed: (" . $conexion->errno . ") " . $conexion->error;
     mysqli_close($conexion);
-    header('Location: ../panelOpciones.php'); //If book.php is your main page where you list your all records
-    exit;
+    echo "<script>location.href='../panelOpciones.php';</script>";
 }
 else {
     echo "Error SP ";

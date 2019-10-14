@@ -7,7 +7,7 @@ if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] == true) {
    echo "Inicia Sesion para acceder a este contenido.<br>";
    echo "<br><a href='login.html'>Login</a>";
    echo "<br><br><a href='index.html'>Registrarme</a>";
-   header('Location:  ../../../../index.php');//redirige a la página de login si el usuario quiere ingresar sin iniciar sesion
+   echo "<script>location.href='../../../../index.php';</script>";
 
 
 exit;

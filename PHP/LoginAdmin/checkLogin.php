@@ -32,11 +32,10 @@ if ($password==$row['PASSWORD']) {
     $_SESSION['loggedin'] = true;
     $_SESSION['username'] = $username;
 
-    
-   header('Location: opciones/panelOpciones.php');//redirecciona a la pagina del usuario
+    echo "<script>location.href='opciones/panelOpciones.php';</script>";
 
  } else { 
-  header('Location: errorLogin.php');
+  echo "<script>location.href='errorLogin.php';</script>";
  }
 
  //echo $output;

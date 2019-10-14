@@ -24,8 +24,7 @@ $sql = "INSERT INTO usuarios_cajeros (ID, NOMBRE, APELLIDO, USUARIO, CORREO, PAS
 
 if (mysqli_query($conexion, $sql)) {
     mysqli_close($conexion);
-    header('Location: ../cajeros.php'); //If book.php is your main page where you list your all records
-    exit;
+    echo "<script>location.href='../cajeros.php';</script>";
 } else {
     echo "Error UPDATE record";
 }

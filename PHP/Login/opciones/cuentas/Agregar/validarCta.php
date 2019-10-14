@@ -23,9 +23,10 @@ $result = $conexion->query($sql);
 if ($result->num_rows > 0) {
     $row = $result->fetch_array(MYSQLI_ASSOC);
 
-    header("Location: PanelNuevo.php?cta=".$row['ID']."&nocta=".$row['NO_CUENTA']);
+
+    echo "<script>location.href='PanelNuevo.php?cta=".$row['ID']."&nocta=".$row['NO_CUENTA']."';</script>";
   }else {
-    header('Location: errorCta.php');    
+    echo "<script>location.href='errorCta.php';</script>";
   }
 
  //echo $output;

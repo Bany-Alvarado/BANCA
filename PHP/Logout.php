@@ -4,6 +4,6 @@ session_start();
 unset ($SESSION['username']);
 session_destroy();
 
-header('Location: ../index.php');
+echo "<script>location.href='../index.php';</script>";
 
 ?>

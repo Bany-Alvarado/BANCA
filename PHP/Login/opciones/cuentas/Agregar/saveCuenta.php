@@ -25,8 +25,7 @@ echo $sql;
 
 if (mysqli_query($conexion, $sql)) {
     mysqli_close($conexion);
-    header('Location: ../Terceros.php'); //If book.php is your main page where you list your all records
-    exit;
+    echo "<script>location.href='../Terceros.php';</script>";
 } else {
     echo "Error UPDATE record";
 }

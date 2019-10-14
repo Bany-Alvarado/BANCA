@@ -39,17 +39,11 @@ $cuenta = $_POST['cuenta'];
 // sql to delete a record
 $sqlUsser = "INSERT INTO usuarios (ID, NOMBRE, APELLIDO, DPI, USUARIO, CORREO, PASSWORD, ACTIVO, esAdmin) VALUES ('$uuid','$nombre','$apellido','$dpi','$usuario','$email','$pass',1,1)";
 $sql = "INSERT INTO cuenta (ID, ID_USUARIO, NO_CUENTA, ID_TIPO_CUENTA, SALDO) VALUES ('$uuidC','$uuid','$cuenta','$tipo_cta',0)";
-echo $sql; 
-// send_email();
+
 if (mysqli_query($conexion, $sqlUsser)) {
     if (mysqli_query($conexion, $sql)) {
         mysqli_close($conexion);
-
-        
-
-
-        header('Location: ../../index.php');
-        exit;
+        echo "<script>location.href='/../../index.php';</script>";
     } else {
         echo "Error insert record";
     }
