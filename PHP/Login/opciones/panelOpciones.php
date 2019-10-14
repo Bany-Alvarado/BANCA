@@ -68,7 +68,7 @@ exit;
     <section class="section-class">
         <center>
             <button class="buttonOption" type="submit" onclick="location.href='cuentas/Terceros.php';"  name="btn_CtaTerceros">Agregar Cuenta Terceros</button>
-            <button class="buttonOption" type="submit" name="btn_Login">Transferencia Cuenta Terceros</button>
+            <button class="buttonOption" type="submit" onclick="location.href='transferencias/panelTransfer.php';" name="btn_Login">Transferencia Cuenta Terceros</button>
             <button class="buttonOption" type="submit" name="btn_Login">Estado de Cuenta</button>
         </center>
     </section>

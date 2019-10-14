@@ -7,7 +7,7 @@ if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] == true) {
    echo "Inicia Sesion para acceder a este contenido.<br>";
    echo "<br><a href='login.html'>Login</a>";
    echo "<br><br><a href='index.html'>Registrarme</a>";
-   header('Location:  ../../../../index.php');//redirige a la página de login si el usuario quiere ingresar sin iniciar sesion
+   header('Location:  ../../../../../index.php');//redirige a la página de login si el usuario quiere ingresar sin iniciar sesion
 
 
 exit;
@@ -17,8 +17,9 @@ exit;
 
 <head>
     <title>Ejemplo LocalStorage</title>
-    <link rel="stylesheet" href="../../../../style.css">
-    <link rel="icon" href="../../../../img/core-img/favicon.ico">
+    <link rel="stylesheet" href="../../../../../style.css">
+    <!-- <link rel="stylesheet" href="style.css"> -->
+    <link rel="icon" href="../../../../../img/core-img/favicon.ico">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
 </head>
 
@@ -35,7 +36,8 @@ exit;
                     <nav class="classy-navbar justify-content-between" id="cryptosNav">
 
                         <!-- Logo -->
-                        <a class="nav-brand" href="index.php"><img src="../../../../img/core-img/logo.png" alt=""></a>
+                        <a class="nav-brand" href="index.php"><img src="../../../../../img/core-img/logo.png"
+                                alt=""></a>
 
                         <!-- Navbar Toggler -->
                         <div class="classy-navbar-toggler">
@@ -54,7 +56,6 @@ exit;
                             <div class="classynav">
                                 <ul>
                                     <li><a>Bienvenido <?php echo $_SESSION['username']; ?> </a></li>
-                                    <li><a href="../panelOpciones.php">Volver</a></li>
                                 </ul>
                             </div>
                             <!-- Nav End -->
@@ -66,61 +67,15 @@ exit;
     </header>
 
     <section class="hero-area">
-        <form action="Agregar/validarCuenta.php">
-
-            <center>
-            <button class="buttonAdd">Agregar</button>
-            <?php
-                include '../../../../config.php';
-    
-                $mysqli = new mysqli($host_db, $user_db, $pass_db, $db_name);
-    
-                if($mysqli->connect_errno){exit;}
-    
-            $result = $mysqli->query("SELECT  USU.NOMBRE NOMBRE,  CT.ALIAS ALIAS, C.NO_CUENTA CUENTA, TIP.NOMBRE TIPO
-            FROM cuentas_terceros CT
-            JOIN cuenta C ON CT.ID_TERCERO = C.ID
-            JOIN USUARIOS  USU
-            ON C.ID_USUARIO = USU.ID
-            JOIN TIPO_CUENTA TIP
-            ON TIP.ID = C.ID_TIPO_CUENTA
-            where CT.ID_USUARIO = '".$_SESSION['UUID']. "'");
-    
-            
-                // output data of each row
-                echo "<table class=\"table\">";
-            echo "<thead>
-                <tr>
-                <th class=\"table__heading\">Nombre</th>
-                <th class=\"table__heading\">Alias</th>
-                <th class=\"table__heading\">Tipo</th>
-                <th class=\"table__heading\">Cuenta</th>
-                </tr>
-            </thead>";
-            echo " <tbody>";
-            if ($result->num_rows > 0) {
-                while($row = $result->fetch_assoc()) {
-                    echo "<tr class=\"table__row\">";
-                    echo "<td class=\"table__content\">".$row['NOMBRE']."</td>";
-                    echo "<td class=\"table__content\">".$row['ALIAS']."</td>";
-                    echo "<td class=\"table__content\">".$row['TIPO']."</td>";                
-                    echo "<td class=\"table__content\">".$row['CUENTA']."</td>";
-                    echo "</tr>";
-                }
-            }
-            echo "</tbody>";
-            echo "</table>";
-            
-            $mysqli->close();
-            ?>
-            </center>
+        <h2>Cuenta no registrada</h2>
+        <button class="error" onclick="location.href='validarCuenta.php';" name="back_Login">Volver a Intentarlo</button>
         </form>
     </section>
     <!-- ##### Footer Area Start ##### -->
     <footer class="footer-area">
         <!-- Main Footer Area -->
         <div class="main-footer-area section-padding-100-0 bg-img bg-overlay"
-            style="background-image: url(../../../../img/bg-img/bg-1.jpg);">
+            style="background-image: url(../../../../../img/bg-img/bg-1.jpg);">
             <div class="container">
                 <div class="row">
 
@@ -128,7 +83,7 @@ exit;
                     <div class="col-12 col-sm-6 col-lg-4">
                         <div class="footer-widget mb-100">
                             <div class="widget-title">
-                                <a href="#"><img src="../../../../img/core-img/logo2.png" alt=""></a>
+                                <a href="#"><img src="../../../../../img/core-img/logo2.png" alt=""></a>
                             </div>
                             <p>Segundo proyecto de Desarrollo Web</p>
                             <div class="footer-social-info">

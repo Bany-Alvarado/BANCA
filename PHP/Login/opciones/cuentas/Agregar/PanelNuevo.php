@@ -18,7 +18,7 @@ exit;
 <head>
     <title>Ejemplo LocalStorage</title>
     <link rel="stylesheet" href="../../../../../style.css">
-    <link rel="stylesheet" href="style.css">
+    <!-- <link rel="stylesheet" href="style.css"> -->
     <link rel="icon" href="../../../../../img/core-img/favicon.ico">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
 </head>
@@ -55,7 +55,7 @@ exit;
                             <div class="classynav">
                                 <ul>
                                     <li><a>Bienvenido <?php echo $_SESSION['username']; ?> </a></li>
-                                    <li><a href="../panelOpciones.php">Volver</a></li>
+                                    <li><a href="validarCuenta.php">Volver</a></li>
                                 </ul>
                             </div>
                             <!-- Nav End -->
@@ -66,49 +66,23 @@ exit;
         </div>
     </header>
 
-    <section class="section-class">
-        <center>
-        <button class="buttonAdd" onclick="window.location.href='NuevoCajero/Nuevo.php'">Agregar</button>
-        <?php
-            include '../../../../../config.php';
+   
+    <section class="hero-area">
+        <form action="<?php echo "saveCuenta.php?cta=".$_GET['cta'] ?> " method="POST">
+            <div class="container">
+                <label for="noCuenta"><b>No. Cuenta</b></label>
+                <input type="text" placeholder="No. Cuenta" name="noCuenta" value="<?php echo $_GET['nocta'];?>" required readonly>
+                <label for="alias"><b>Alias</b></label>
+                <input type="text" placeholder="Alias" name="alias" required>
+                <label for="montoMax"><b>Monto Maximo</b></label>
+                <input type="number" placeholder="Monto Maximo" name="montMax" required>
+                <label for="transMens"><b>Maximo de Transacciones mensuales</b></label>
+                <input type="number" placeholder="Maximo de Transacciones mensuales" name="transMens" required>
 
-            $mysqli = new mysqli($host_db, $user_db, $pass_db, $db_name);
-
-            if($mysqli->connect_errno){exit;}
-
-        $result = $mysqli->query("SELECT c.Nombre as NombreC, ct.NO_CUENTA AS Cuenta, tc.Nombre as TipoCuenta  FROM cuentas_terceros as ct 
-        INNER JOIN cuenta c
-        on ct.id_usuario = c.id  
-        INNER JOIN tipo_cuenta tc
-        on tc.ID = ct.ID_TIPO_CUENTA
-        where c.id = '".$_SESSION['UUID']. "'");
-
-        
-            // output data of each row
-            echo "<table class=\"table\">";
-        echo "<thead>
-            <tr>
-            <th class=\"table__heading\">Nombre</th>
-            <th class=\"table__heading\">Correo</th>
-            <th class=\"table__heading\">Activo</th>
-            </tr>
-        </thead>";
-        echo " <tbody>";
-        if ($result->num_rows > 0) {
-            while($row = $result->fetch_assoc()) {
-                echo "<tr class=\"table__row\">";
-                echo "<td class=\"table__content\">".$row['NombreC']."</td>";
-                echo "<td class=\"table__content\">".$row['Cuenta']."</td>";
-                echo "<td class=\"table__content\">".$row['TipoCuenta']."</td>";                
-                echo "</tr>";
-            }
-        }
-        echo "</tbody>";
-        echo "</table>";
-        
-        $mysqli->close();
-        ?>
-        </center>
+                <button type="submit" name="btn_Save">Guardar</button>
+                <button class="red" onclick="window.location.href='../Terceros.php'" name="btn_cancel">Cancelar</button>
+            </div>
+        </form>
     </section>
     <!-- ##### Footer Area Start ##### -->
     <footer class="footer-area">

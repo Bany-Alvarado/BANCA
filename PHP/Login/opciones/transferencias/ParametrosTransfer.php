@@ -66,54 +66,41 @@ exit;
     </header>
 
     <section class="hero-area">
-        <form action="Agregar/validarCuenta.php">
-
-            <center>
-            <button class="buttonAdd">Agregar</button>
-            <?php
-                include '../../../../config.php';
-    
-                $mysqli = new mysqli($host_db, $user_db, $pass_db, $db_name);
-    
-                if($mysqli->connect_errno){exit;}
-    
-            $result = $mysqli->query("SELECT  USU.NOMBRE NOMBRE,  CT.ALIAS ALIAS, C.NO_CUENTA CUENTA, TIP.NOMBRE TIPO
-            FROM cuentas_terceros CT
-            JOIN cuenta C ON CT.ID_TERCERO = C.ID
-            JOIN USUARIOS  USU
-            ON C.ID_USUARIO = USU.ID
-            JOIN TIPO_CUENTA TIP
-            ON TIP.ID = C.ID_TIPO_CUENTA
-            where CT.ID_USUARIO = '".$_SESSION['UUID']. "'");
-    
-            
-                // output data of each row
-                echo "<table class=\"table\">";
-            echo "<thead>
-                <tr>
-                <th class=\"table__heading\">Nombre</th>
-                <th class=\"table__heading\">Alias</th>
-                <th class=\"table__heading\">Tipo</th>
-                <th class=\"table__heading\">Cuenta</th>
-                </tr>
-            </thead>";
-            echo " <tbody>";
-            if ($result->num_rows > 0) {
-                while($row = $result->fetch_assoc()) {
-                    echo "<tr class=\"table__row\">";
-                    echo "<td class=\"table__content\">".$row['NOMBRE']."</td>";
-                    echo "<td class=\"table__content\">".$row['ALIAS']."</td>";
-                    echo "<td class=\"table__content\">".$row['TIPO']."</td>";                
-                    echo "<td class=\"table__content\">".$row['CUENTA']."</td>";
-                    echo "</tr>";
+        <form action="<?php echo "transferir.php?cta=".$_GET['id'] ?> " method="POST">
+            <div class="container">
+            <label for="cta"><b>Cuenata</b></label>
+            <select type="select" name="cta">
+                    
+                <?php
+                    include '../../../../config.php';
+        
+                    $mysqli = new mysqli($host_db, $user_db, $pass_db, $db_name);
+        
+                    if($mysqli->connect_errno){exit;}
+        
+                $result = $mysqli->query("SELECT  C.ID ID, TIP.NOMBRE TIPO
+                FROM cuenta C            
+                JOIN TIPO_CUENTA TIP
+                ON TIP.ID = C.ID_TIPO_CUENTA
+                where C.ID_USUARIO = '".$_SESSION['UUID']. "'");
+        
+                
+                if ($result->num_rows > 0) {
+                    while($row = $result->fetch_assoc()) {
+                        echo "<option value=".$row['ID'].">".$row['TIPO']."</option>";
+                    }
                 }
-            }
-            echo "</tbody>";
-            echo "</table>";
-            
-            $mysqli->close();
-            ?>
-            </center>
+                
+                $mysqli->close();
+                ?>
+                </select>
+                <label for="monto"><b>Monto</b></label>
+                <input type="number" placeholder="Monto" name="monto" max="<?php echo $_GET['max']?>"  required>
+                <label for="comment"><b>Comentario</b></label>
+                <input type="text" placeholder="Comentario" name="comment" max="<?php echo $_GET['max']?>"  required>
+                <button type="submit" name="btn_Save">Transferir</button>
+                <button class="red" onclick="window.location.href='panelTransfer.php'" name="btn_cancel">Cancelar</button>
+            </div>
         </form>
     </section>
     <!-- ##### Footer Area Start ##### -->

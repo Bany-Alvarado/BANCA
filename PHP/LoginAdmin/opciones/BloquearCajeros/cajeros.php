@@ -94,9 +94,9 @@ exit;
                 echo "<td class=\"table__content\">".$row['Nombre']."</td>";
                 echo "<td class=\"table__content\">".$row['correo']."</td>";
                 if($row['BLOQUEADO']){
-                    echo "<td class=\"table__content\"><a href='Activar.php?id=".$row['ID']."&status=".$row['BLOQUEADO']."'>Activar</a></td>";
+                    echo "<td class=\"table__content \"><center><a class= \"fa fa-lock\" href='Activar.php?id=".$row['ID']."&status=".$row['BLOQUEADO']."'></a></center></td>";
                 }else{
-                    echo "<td class=\"table__content\"><a href='Activar.php?id=".$row['ID']."&status=".$row['BLOQUEADO']."'>Desactivar</a></td>";
+                    echo "<td class=\"table__content\"><center><a class= \"fa fa-unlock\"  href='Activar.php?id=".$row['ID']."&status=".$row['BLOQUEADO']."'></a></center></td>";
                 }
                 echo "</tr>";
             }

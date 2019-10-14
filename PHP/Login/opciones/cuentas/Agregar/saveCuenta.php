@@ -14,17 +14,18 @@ if ($conexion->connect_error) {
 }
 
 $uuid = uniqid('', true);
-$nombre = $_POST['nombre'];
-$apellido = $_POST['apellido'];
-$usuario = $_POST['usuario'];
-$email = $_POST['email'];
-$pass = $_POST['password'];
+$alias = $_POST['alias'];
+$montMax = $_POST['montMax'];
+$transMens = $_POST['transMens'];
+$cta = $_GET['cta'];
+$user = $_SESSION["UUID"];
 // sql to delete a record
-$sql = "INSERT INTO usuarios_cajeros (ID, NOMBRE, APELLIDO, USUARIO, CORREO, PASSWORD, BLOQUEADO) VALUES ('$uuid','$nombre','$apellido','$usuario','$email','$pass',0)";
+$sql = "INSERT INTO cuentas_terceros (ID, ID_USUARIO, ID_TERCERO, MONT_MAXIMO, TRANS_MAXIMA_MES, ALIAS) VALUES ('$uuid', '$user','$cta','$montMax','$transMens','$alias')";
+echo $sql; 
 
 if (mysqli_query($conexion, $sql)) {
     mysqli_close($conexion);
-    header('Location: ../cajeros.php'); //If book.php is your main page where you list your all records
+    header('Location: ../Terceros.php'); //If book.php is your main page where you list your all records
     exit;
 } else {
     echo "Error UPDATE record";

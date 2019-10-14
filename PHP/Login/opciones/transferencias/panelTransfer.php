@@ -66,10 +66,9 @@ exit;
     </header>
 
     <section class="hero-area">
-        <form action="Agregar/validarCuenta.php">
+        <form>
 
             <center>
-            <button class="buttonAdd">Agregar</button>
             <?php
                 include '../../../../config.php';
     
@@ -77,7 +76,7 @@ exit;
     
                 if($mysqli->connect_errno){exit;}
     
-            $result = $mysqli->query("SELECT  USU.NOMBRE NOMBRE,  CT.ALIAS ALIAS, C.NO_CUENTA CUENTA, TIP.NOMBRE TIPO
+            $result = $mysqli->query("SELECT  USU.NOMBRE NOMBRE,  CT.ALIAS ALIAS, C.NO_CUENTA CUENTA, TIP.NOMBRE TIPO, C.ID IDCUENTA, CT.MONT_MAXIMO MAXI
             FROM cuentas_terceros CT
             JOIN cuenta C ON CT.ID_TERCERO = C.ID
             JOIN USUARIOS  USU
@@ -95,6 +94,7 @@ exit;
                 <th class=\"table__heading\">Alias</th>
                 <th class=\"table__heading\">Tipo</th>
                 <th class=\"table__heading\">Cuenta</th>
+                <th class=\"table__heading\">Transferir</th>
                 </tr>
             </thead>";
             echo " <tbody>";
@@ -105,6 +105,7 @@ exit;
                     echo "<td class=\"table__content\">".$row['ALIAS']."</td>";
                     echo "<td class=\"table__content\">".$row['TIPO']."</td>";                
                     echo "<td class=\"table__content\">".$row['CUENTA']."</td>";
+                    echo "<td class=\"table__content\"><center><a class= \"fa fa-dollar\"  href='ParametrosTransfer.php?id=".$row['IDCUENTA']."&max=".$row['MAXI']."'></a><c/enter></td>";
                     echo "</tr>";
                 }
             }
