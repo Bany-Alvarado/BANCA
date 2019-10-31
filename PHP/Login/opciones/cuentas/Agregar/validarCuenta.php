@@ -54,7 +54,7 @@ exit;
                             <div class="classynav">
                                 <ul>
                                     <li><a>Bienvenido <?php echo $_SESSION['username']; ?> </a></li>
-                                    <li><a href="../cajeros.php">Volver</a></li>
+                                    <li><a href="../Terceros.php">Volver</a></li>
                                 </ul>
                             </div>
                             <!-- Nav End -->

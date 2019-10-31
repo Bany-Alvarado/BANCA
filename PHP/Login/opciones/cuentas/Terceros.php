@@ -71,7 +71,7 @@ exit;
             <button class="buttonAdd">Agregar</button>
             <?php
                 include '../../../../config.php';
-    
+                session_start();
                 $mysqli = new mysqli($host_db, $user_db, $pass_db, $db_name);
     
                 if($mysqli->connect_errno){exit;}
@@ -79,9 +79,9 @@ exit;
             $result = $mysqli->query("SELECT  USU.NOMBRE NOMBRE,  CT.ALIAS ALIAS, C.NO_CUENTA CUENTA, TIP.NOMBRE TIPO
             FROM cuentas_terceros CT
             JOIN cuenta C ON CT.ID_TERCERO = C.ID
-            JOIN USUARIOS  USU
+            JOIN usuarios  USU
             ON C.ID_USUARIO = USU.ID
-            JOIN TIPO_CUENTA TIP
+            JOIN tipo_cuenta TIP
             ON TIP.ID = C.ID_TIPO_CUENTA
             where CT.ID_USUARIO = '".$_SESSION['UUID']. "'");
     
