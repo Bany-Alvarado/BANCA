@@ -77,7 +77,7 @@ exit;
                 if($mysqli->connect_errno){exit;}
     
             $result = $mysqli->query("SELECT  COMENTARIO, MONTO FROM movimientos  where ID_CUENTA = '".$_GET['id']. "'");
-            $result2 = $mysqli->query("SELECT  SALDO FROM CUENTA  where ID = '".$_GET['id']. "'");
+            $result2 = $mysqli->query("SELECT  SALDO FROM cuenta  where ID = '".$_GET['id']. "'");
     
             
                 // output data of each row

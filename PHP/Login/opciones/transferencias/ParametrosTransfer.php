@@ -80,7 +80,7 @@ exit;
         
                 $result = $mysqli->query("SELECT  C.ID ID, TIP.NOMBRE TIPO
                 FROM cuenta C            
-                JOIN TIPO_CUENTA TIP
+                JOIN tipo_cuenta TIP
                 ON TIP.ID = C.ID_TIPO_CUENTA
                 where C.ID_USUARIO = '".$_SESSION['UUID']. "'");
         
