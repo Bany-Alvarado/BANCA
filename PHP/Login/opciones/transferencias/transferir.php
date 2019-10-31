@@ -22,7 +22,7 @@ $comment = $_POST['comment'];
 
 
 
-$query = "CALL TRANSFERIR($monto,'$cta','$id','$comment')";
+$query = "CALL transferir($monto,'$cta','$id','$comment')";
 
 if ($conexion->query($query)) {
     echo "CALL failed: (" . $conexion->errno . ") " . $conexion->error;
