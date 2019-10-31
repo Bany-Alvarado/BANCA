@@ -13,7 +13,7 @@ if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] == true) {
 <html>
 
 <head>
-    <title>Ejemplo LocalStorage</title>
+    <title>Cryptos</title>
     <link rel="stylesheet" href="../../../../../style.css">
     <!-- <link rel="stylesheet" href="style.css"> -->
     <link rel="icon" href="../../../../../img/core-img/favicon.ico">
@@ -79,8 +79,8 @@ if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] == true) {
                 <input type="password" placeholder="password" name="password" required>
 
                 <button type="submit" name="btn_Save">Guardar</button>
-                <button class="red" onclick="window.location.href='../cajeros.php'" name="btn_cancel">Cancelar</button>
             </div>
+                <button class="red" onclick="window.location.href='../cajeros.php'" name="btn_cancel">Cancelar</button>
         </form>
     </section>
     <!-- ##### Footer Area Start ##### -->

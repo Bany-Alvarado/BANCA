@@ -43,7 +43,7 @@ $sql = "INSERT INTO cuenta (ID, ID_USUARIO, NO_CUENTA, ID_TIPO_CUENTA, SALDO) VA
 if (mysqli_query($conexion, $sqlUsser)) {
     if (mysqli_query($conexion, $sql)) {
         mysqli_close($conexion);
-        echo "<script>location.href='/../../index.php';</script>";
+        echo "<script>location.href='../../index.php';</script>";
     } else {
         echo "Error insert record";
     }

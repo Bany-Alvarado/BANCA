@@ -1,10 +1,24 @@
+<?php
+session_start();
+
+if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] == true) {
+
+} else {
+   echo "Inicia Sesion para acceder a este contenido.<br>";
+   echo "<br><a href='login.html'>Login</a>";
+   echo "<br><br><a href='index.html'>Registrarme</a>";
+   echo "<script>location.href='../../../../index.php';</script>";
+
+
+exit;
+}
+?>
 <html>
 
 <head>
     <title>Cryptos</title>
-    <link rel="stylesheet" href="../../style.css">
-    <link rel="stylesheet" href="styleLogin.css">
-    <link rel="icon" href="img/core-img/favicon.ico">
+    <link rel="stylesheet" href="../../../../style.css">
+    <link rel="icon" href="../../../../img/core-img/favicon.ico">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
 </head>
 
@@ -21,7 +35,7 @@
                     <nav class="classy-navbar justify-content-between" id="cryptosNav">
 
                         <!-- Logo -->
-                        <a class="nav-brand" href="index.php"><img src="../../img/core-img/logo.png" alt=""></a>
+                        <a class="nav-brand" href="index.php"><img src="../../../../img/core-img/logo.png" alt=""></a>
 
                         <!-- Navbar Toggler -->
                         <div class="classy-navbar-toggler">
@@ -39,7 +53,8 @@
                             <!-- Nav Start -->
                             <div class="classynav">
                                 <ul>
-                                    <li><a href="../../index.php">Volver</a></li>
+                                    <li><a>Bienvenido <?php echo $_SESSION['username']; ?> </a></li>
+                                    <li><a href="../../Panel.php">Volver</a></li>
                                 </ul>
                             </div>
                             <!-- Nav End -->
@@ -50,24 +65,25 @@
         </div>
     </header>
 
-    <section class="hero-area">
-        <form action="checkLogin.php" method="post">
+    <section class="section-class">
+        <form action="<?php echo "transferenciaDeb.php?cta=".$_GET['cta'] ?>" method="POST">
             <div class="container">
-                <label for="username"><b>Usuario</b></label>
-                <input type="text" placeholder="Usuario" name="username" required>
+            <?php 
+            echo "<h1>".$_GET['nombre']."</h1>";
+            ?>
+                <label for="monto"><b>Monto</b></label>
+                <input type="text" placeholder="Monto" name="monto">
 
-                <label for="password"><b>Password</b></label>
-                <input type="password" placeholder="Password" name="password" required>
-
-                <button type="submit" name="btn_Login">Login</button>
+                <button type="submit" name="btn_Save">Transferir</button>
             </div>
         </form>
+                <button class="red" onclick="window.location.href='../../Panel.php'" name="btn_cancel">Cancelar</button>
     </section>
     <!-- ##### Footer Area Start ##### -->
     <footer class="footer-area">
         <!-- Main Footer Area -->
         <div class="main-footer-area section-padding-100-0 bg-img bg-overlay"
-            style="background-image: url(../../img/bg-img/bg-1.jpg);">
+            style="background-image: url(../../../../img/bg-img/bg-1.jpg);">
             <div class="container">
                 <div class="row">
 
@@ -75,7 +91,7 @@
                     <div class="col-12 col-sm-6 col-lg-4">
                         <div class="footer-widget mb-100">
                             <div class="widget-title">
-                                <a href="#"><img src="../../img/core-img/logo2.png" alt=""></a>
+                                <a href="#"><img src="../../../../img/core-img/logo2.png" alt=""></a>
                             </div>
                             <p>Segundo proyecto de Desarrollo Web</p>
                             <div class="footer-social-info">

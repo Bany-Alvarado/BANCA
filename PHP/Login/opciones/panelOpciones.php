@@ -15,7 +15,7 @@ exit;
 <html>
 
 <head>
-    <title>Ejemplo LocalStorage</title>
+    <title>Cryptos</title>
     <link rel="stylesheet" href="../../../style.css">
     <link rel="icon" href="../img/core-img/favicon.ico">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>

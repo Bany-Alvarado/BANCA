@@ -31,14 +31,10 @@ if ($password==$row['PASSWORD']) {
  
     $_SESSION['loggedin'] = true;
     $_SESSION['username'] = $username;
-
-    // echo "Bienvenido! " . $_SESSION['username'];
     
    echo "<script>location.href='Panel.php';</script>";
  } else { 
-   echo "<div>Usuario o Password Incorrectos</div>";
-
-   echo "<br><a href='login.html'>Volver a Intentarlo</a>";
+  echo "<script>location.href='ErrorLogin.php';</script>";
  }
 
  //echo $output;

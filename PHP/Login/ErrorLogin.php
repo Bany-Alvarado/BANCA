@@ -51,17 +51,8 @@
     </header>
 
     <section class="hero-area">
-        <form action="checkLogin.php" method="post">
-            <div class="container">
-                <label for="username"><b>Usuario</b></label>
-                <input type="text" placeholder="Usuario" name="username" required>
-
-                <label for="password"><b>Password</b></label>
-                <input type="password" placeholder="Password" name="password" required>
-
-                <button type="submit" name="btn_Login">Login</button>
-            </div>
-        </form>
+    <h1>Usuario o Contranseña Incorrecta</h1>
+        <button class="red"  onclick="<?php echo "location.href='Login.php'"?>" name="btn_TRY">Intentar de Nuevo</button>
     </section>
     <!-- ##### Footer Area Start ##### -->
     <footer class="footer-area">
