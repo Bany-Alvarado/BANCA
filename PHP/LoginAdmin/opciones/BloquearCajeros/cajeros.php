@@ -68,6 +68,7 @@ exit;
     <section class="section-class">
         <button  class= "buttonAdd" onclick="window.location.href='NuevoCajero/Nuevo.php'">Agregar</button>
         <?php
+            session_start();
             include '../../../../config.php';
 
             $mysqli = new mysqli($host_db, $user_db, $pass_db, $db_name);

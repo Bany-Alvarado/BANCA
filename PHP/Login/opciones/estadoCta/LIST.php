@@ -69,6 +69,7 @@ exit;
 
             <center>
             <?php
+                session_start();
                 include '../../../../config.php';
     
                 $mysqli = new mysqli($host_db, $user_db, $pass_db, $db_name);
